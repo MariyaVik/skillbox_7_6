@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'package:skillbox_7_6/navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      initialRoute: Navigation.initialRoute,
+      onGenerateRoute: Navigation.onGenerateRoute,
+      // home: Home(),
     );
   }
 }

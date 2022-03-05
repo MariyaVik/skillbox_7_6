@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillbox_7_6/artist.dart';
 import 'package:skillbox_7_6/artist_details.dart';
 import 'package:skillbox_7_6/artists_list.dart';
 import 'package:skillbox_7_6/home.dart';
@@ -19,7 +20,11 @@ class Navigation {
       case NavRouteName.artistsList:
         return MaterialPageRoute(builder: (context) => ArtistsList());
       case NavRouteName.artistDetails:
-        return MaterialPageRoute(builder: (context) => ArtistDetails());
+        final arg = settings.arguments as Artist;
+        return MaterialPageRoute(
+            builder: (context) => ArtistDetails(
+                  currentArtist: arg,
+                ));
       default:
         return MaterialPageRoute(
             builder: (context) => const Text('Navigation error!!!'));

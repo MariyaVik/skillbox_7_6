@@ -55,7 +55,10 @@ class _ArtistsListState extends State<ArtistsList> {
           for (var artist in artists)
             ListTile(
               title: Text(artist.name),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(NavRouteName.artistDetails, arguments: artist);
+              },
             )
         ]),
       ),

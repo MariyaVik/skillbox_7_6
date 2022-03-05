@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:skillbox_7_6/artist.dart';
 
 class ArtistDetails extends StatefulWidget {
-  ArtistDetails({Key? key}) : super(key: key);
+  Artist currentArtist;
+  ArtistDetails({required this.currentArtist, Key? key}) : super(key: key);
 
   @override
   State<ArtistDetails> createState() => _ArtistDetailsState();
@@ -10,8 +12,13 @@ class ArtistDetails extends StatefulWidget {
 class _ArtistDetailsState extends State<ArtistDetails> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.currentArtist.name),
+        ),
+        body: Text(widget.currentArtist.about),
+      ),
     );
   }
 }

@@ -19,7 +19,9 @@ class _HomeState extends State<Home> {
           children: [
             ListTile(
               title: Text("Home"),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pop();
+              },
             ),
             ListTile(
               title: Text("Artists"),

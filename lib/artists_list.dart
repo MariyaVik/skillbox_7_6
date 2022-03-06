@@ -33,7 +33,9 @@ class _ArtistsListState extends State<ArtistsList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text('List of artists'),
+        ),
         drawer: Drawer(
             child: Column(
           children: [

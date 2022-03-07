@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:skillbox_7_6/navigation.dart';
+import 'package:skillbox_7_6/drawer.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -10,29 +10,25 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    super.initState();
+    print('Home init');
+  }
+
+  @override
+  void dispose() {
+    print('Home dispose');
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text('Home'),
         ),
-        drawer: Drawer(
-            child: Column(
-          children: [
-            ListTile(
-              title: Text("Home"),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            ListTile(
-              title: Text("Artists"),
-              onTap: () {
-                Navigator.of(context).pushNamed(NavRouteName.artistsList);
-              },
-            ),
-          ],
-        )),
+        drawer: MyDrawer(indexScreen: 0),
       ),
     );
   }

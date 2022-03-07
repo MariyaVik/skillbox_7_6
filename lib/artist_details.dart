@@ -11,6 +11,18 @@ class ArtistDetails extends StatefulWidget {
 
 class _ArtistDetailsState extends State<ArtistDetails> {
   @override
+  void initState() {
+    super.initState();
+    print('Details init');
+  }
+
+  @override
+  void dispose() {
+    print('Details dispose');
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

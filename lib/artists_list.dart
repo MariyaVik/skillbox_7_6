@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:skillbox_7_6/artist.dart';
+import 'package:skillbox_7_6/drawer.dart';
 import 'package:skillbox_7_6/navigation.dart';
 
 class ArtistsList extends StatefulWidget {
@@ -13,7 +14,9 @@ class ArtistsList extends StatefulWidget {
 }
 
 class _ArtistsListState extends State<ArtistsList> {
+  int _currentSelected = 1;
   List artists = [];
+  List drawerItem = ['Home', 'Artists'];
 
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/artists.json');
@@ -26,7 +29,13 @@ class _ArtistsListState extends State<ArtistsList> {
   void initState() {
     super.initState();
     readJson();
+    print('Artists init');
     setState(() {});
+  }
+
+  void dispose() {
+    print('Artists dispose');
+    super.dispose();
   }
 
   @override
@@ -36,23 +45,7 @@ class _ArtistsListState extends State<ArtistsList> {
         appBar: AppBar(
           title: Text('List of artists'),
         ),
-        drawer: Drawer(
-            child: Column(
-          children: [
-            ListTile(
-              title: Text("Home"),
-              onTap: () {
-                Navigator.of(context).pushNamed(NavRouteName.home);
-              },
-            ),
-            ListTile(
-              title: Text("Artists"),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        )),
+        drawer: MyDrawer(indexScreen: 1),
         body: ListView(children: [
           for (var artist in artists)
             ListTile(
